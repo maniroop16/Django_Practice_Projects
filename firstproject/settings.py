@@ -44,8 +44,7 @@ INSTALLED_APPS = [
 
 EXTERNAL_APPS = [
     'Home',
-    'Cooking',
-    'Accounts'
+    'Cooking'
 ]
 
 
