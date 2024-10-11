@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block start %}
+<div class="container mt-5">
+    <h3>StudentName: {{studentname}}</h3>
+    <h3>StudentID: {{student_id}}</h3>
+    <h3>Total : {{total.total_marks}}</h3>
+    <h3>Rank : {{queryset.first.student.student_rank.first.student_rank}}</h3>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">SNo</th>
+            <th scope="col">Subjects</th>
+            <th scope="col">Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in queryset %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{i.subject}}</td>
+            <td>{{i.subjectmarks}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+
+</div>
+
+
+
+
+{% endblock %}

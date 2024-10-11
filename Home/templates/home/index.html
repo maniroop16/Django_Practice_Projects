@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block start %}
+
+    <h3>Thiese are basics</h3>
+
+    <a href="/contact/">Contact</a>|
+    <a href="/about/">About</a>
+
+    {{data}}
+
+    <table>
+        <tr>
+          <th>Sno</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Vote</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.name}}</td>
+          <td>{{i.age}}</td>
+          <td {% if i.age >= 18 %} style="background-color: aquamarine;" {% endif %}>
+          {% if i.age >= 18 %} 
+            Yes
+                {% else %}
+            No  
+            {% endif %}  
+          </td>
+        </tr>
+        {% endfor %}
+        
+      </table>
+
+      <p>{{text|truncatechars:10}} </p>
+
+      <div class="container">
+        <a href="/send_email/" class = "btn btn-success">
+          Send Email
+        </a>
+
+      </div>
+{% endblock %}
