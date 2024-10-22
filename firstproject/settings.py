@@ -44,7 +44,8 @@ INSTALLED_APPS = [
 
 EXTERNAL_APPS = [
     'Home',
-    'Cooking'
+    'Cooking',
+    "rest_framework"
 ]
 
 INSTALLED_APPS = INSTALLED_APPS + EXTERNAL_APPS

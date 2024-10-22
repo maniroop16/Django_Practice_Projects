@@ -91,3 +91,12 @@ class Reportcard(models.Model):
     class Meta:
         unique_together = ["student_rank","result_date"]
     
+
+class Address(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    address = models.TextField()
+    Phone_number = models.IntegerField()
+
+    def __str__(self):
+        return self.first_name    
