@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q, Sum
 from Cooking.seed import *
+from rest_framework.viewsets import ModelViewSet
+from Cooking.serializer import *
 
 # These are used for setting CustomUser model
 #from django.contrib.auth import get_user_model
@@ -160,3 +162,13 @@ def get_marks(request, student_id):
 
 
     return render(request, "getmarks.html",{"queryset": queryset, "studentname":studentname, "student_id":student_id,"total":total})
+
+
+class Addressview(ModelViewSet):
+    queryset = Address.objects.all()
+    serializer_class = Addressserializer
+
+
+
+
+

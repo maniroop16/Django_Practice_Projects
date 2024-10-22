@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from Home.views import *
 from Cooking.views import *
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+        
     # These are used for Home app
     path("", home ,name = "home"),       
     path("contact/", contact, name = "contact"),
@@ -42,6 +43,10 @@ urlpatterns = [
     # These are used for Student model in Cooking app and pracicing working with admin panal
     path("students/", get_students, name = "get_students"),
     path("getmarks/<student_id>/", get_marks, name = "get_marks"),
+
+    # These are for API congfiguration
+    path("", include("Cooking.urls")),
+    
     
     path('admin/', admin.site.urls),
 ]
