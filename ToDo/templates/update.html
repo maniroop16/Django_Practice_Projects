@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block start %}
+<div class="container mt-5">
+<form class="col-6 mx-auto card p-3 shadow-lg m-3" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label ><h4>Update Task</h4></label>
+      <input type="text" class="form-control" placeholder="Enter task to Add" value="{{queryset.task}}" name = "task">
+    </div>
+    <button type="submit" class="btn btn-success">Update</button>
+  </form>
+
+</div>
+
+
+
+{% endblock %}
+
+

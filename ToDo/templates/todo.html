@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block start %}
+<div class="container mt-5">
+<form class="col-6 mx-auto card p-3 shadow-lg m-3" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label ><h4>Add Task</h4></label>
+      <input type="text" class="form-control" placeholder="Enter task to Add" name = "task">
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+  </form>
+
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">SNo</th>
+        <th scope="col">Tasks</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in queryset%}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.task}}</td>
+        <td>
+            <a href = "/edit_task/{{i.id}}" class="btn btn-primary">Edit</a>
+            <a href = "/delete_task/{{i.id}}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}
+
+

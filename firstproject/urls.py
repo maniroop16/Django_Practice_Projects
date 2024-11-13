@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from Home.views import *
 from Cooking.views import *
+from ToDo.views import *
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
@@ -43,6 +44,12 @@ urlpatterns = [
     # These are used for Student model in Cooking app and pracicing working with admin panal
     path("students/", get_students, name = "get_students"),
     path("getmarks/<student_id>/", get_marks, name = "get_marks"),
+
+    # TODO urls
+    path('todo/', todoadd, name = 'todo'),
+    path('edit_task/<id>/', edit_task, name = 'edit_task'),
+    path('delete_task/<id>/', delete_task, name = 'delete_task'),
+    
 
     # These are for API congfiguration
     path("", include("Cooking.urls")),
